@@ -11,8 +11,10 @@ import javafx.stage.Stage;
 
 public class operation extends Application {
 
-    float num, currentNum, result=0;
+    double number,currentNum, result=0;
     Button button;
+    String num =new String("100");
+    String s = new String("");
 
     public static void main(String[] args) {
         
@@ -37,11 +39,50 @@ public class operation extends Application {
         GridPane.setConstraints(button1, 10,101);
         button1.setOnAction(e->
         {
-            num = 1;
+            s = "1";
+            System.out.println(num);
+        });
+        //button 2
+        Button button2 = new Button("2");
+        GridPane.setConstraints(button2, 10,110);
+        button1.setOnAction(e->
+        {
+            s= "2";
+            scrn.setText("2");
+            System.out.println(num);
+        });
+        //button 1
+        Button button3 = new Button("3");
+        GridPane.setConstraints(button3, 10,130);
+        button1.setOnAction(e->
+        {
+            s = "3";
+            scrn.setText("3");
+            System.out.println(num);
+        });
+        //button 1
+        Button button4 = new Button("4");
+        GridPane.setConstraints(button1, 10,140);
+        button1.setOnAction(e->
+        {
+            s= "4";
             System.out.println(num);
         });
 
-        grid.getChildren().addAll(scrn, button1);
+        try{
+            num = num+s;
+        number = Double.parseDouble(num);
+        num = "";
+        }
+        catch(Exception e)
+        {
+            System.out.println("Exception : "+e);
+        }
+        
+
+        System.out.println(number);
+
+        grid.getChildren().addAll(scrn, button1, button2, button3, button4);
         Scene scene = new Scene(grid, 300, 300);
         primaryStage.setScene(scene);
         primaryStage.show();
